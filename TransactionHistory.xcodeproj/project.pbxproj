@@ -14,6 +14,11 @@
 		1C6F6B6224EEA2BD0099519C /* TransactionHistory.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1C6F6B6024EEA2BD0099519C /* TransactionHistory.xcdatamodeld */; };
 		1C6F6B6424EEA2C20099519C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1C6F6B6324EEA2C20099519C /* Assets.xcassets */; };
 		1C6F6B6724EEA2C20099519C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1C6F6B6524EEA2C20099519C /* LaunchScreen.storyboard */; };
+		1C6F6B7124EEA8CA0099519C /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C6F6B7024EEA8CA0099519C /* Constant.swift */; };
+		1C6F6B7324EEA92F0099519C /* Singleton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C6F6B7224EEA92F0099519C /* Singleton.swift */; };
+		1C6F6B7524EEA96A0099519C /* serverCall.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C6F6B7424EEA96A0099519C /* serverCall.swift */; };
+		1C7631A624EEBE23004E75B1 /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C7631A524EEBE23004E75B1 /* APIManager.swift */; };
+		1C7631A824EECA3D004E75B1 /* TransactionHistoryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C7631A724EECA3D004E75B1 /* TransactionHistoryModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +31,11 @@
 		1C6F6B6324EEA2C20099519C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1C6F6B6624EEA2C20099519C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1C6F6B6824EEA2C20099519C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1C6F6B7024EEA8CA0099519C /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
+		1C6F6B7224EEA92F0099519C /* Singleton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Singleton.swift; sourceTree = "<group>"; };
+		1C6F6B7424EEA96A0099519C /* serverCall.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = serverCall.swift; sourceTree = "<group>"; };
+		1C7631A524EEBE23004E75B1 /* APIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
+		1C7631A724EECA3D004E75B1 /* TransactionHistoryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionHistoryModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +71,11 @@
 				1C6F6B5724EEA2BD0099519C /* AppDelegate.swift */,
 				1C6F6B5924EEA2BD0099519C /* SceneDelegate.swift */,
 				1C6F6B5B24EEA2BD0099519C /* ViewController.swift */,
+				1C6F6B7224EEA92F0099519C /* Singleton.swift */,
+				1C6F6B7424EEA96A0099519C /* serverCall.swift */,
+				1C7631A724EECA3D004E75B1 /* TransactionHistoryModel.swift */,
+				1C6F6B7024EEA8CA0099519C /* Constant.swift */,
+				1C7631A524EEBE23004E75B1 /* APIManager.swift */,
 				1C6F6B5D24EEA2BD0099519C /* Main.storyboard */,
 				1C6F6B6324EEA2C20099519C /* Assets.xcassets */,
 				1C6F6B6524EEA2C20099519C /* LaunchScreen.storyboard */,
@@ -141,10 +156,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1C7631A624EEBE23004E75B1 /* APIManager.swift in Sources */,
+				1C6F6B7524EEA96A0099519C /* serverCall.swift in Sources */,
 				1C6F6B5C24EEA2BD0099519C /* ViewController.swift in Sources */,
+				1C7631A824EECA3D004E75B1 /* TransactionHistoryModel.swift in Sources */,
+				1C6F6B7324EEA92F0099519C /* Singleton.swift in Sources */,
 				1C6F6B5824EEA2BD0099519C /* AppDelegate.swift in Sources */,
 				1C6F6B5A24EEA2BD0099519C /* SceneDelegate.swift in Sources */,
 				1C6F6B6224EEA2BD0099519C /* TransactionHistory.xcdatamodeld in Sources */,
+				1C6F6B7124EEA8CA0099519C /* Constant.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

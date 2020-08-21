@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -9,16 +10,60 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="TransactionHistory" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yUI-Zs-Nvj">
+                                <rect key="frame" x="20" y="95" width="74" height="22"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="30" id="BwX-Nm-tPE"/>
+                                </constraints>
+                                <state key="normal" title="Button" image="left_arrow_dark"/>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eZ0-L5-M4Y">
+                                <rect key="frame" x="124" y="96" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eGc-yh-ytR">
+                                <rect key="frame" x="317" y="95" width="74" height="22"/>
+                                <state key="normal" title="Button" image="right_arrow_dark"/>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="yUI-Zs-Nvj" firstAttribute="firstBaseline" secondItem="eGc-yh-ytR" secondAttribute="firstBaseline" id="17z-wb-xDP"/>
+                            <constraint firstItem="eGc-yh-ytR" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="eZ0-L5-M4Y" secondAttribute="trailing" constant="8" symbolic="YES" id="6GU-0k-bRY"/>
+                            <constraint firstItem="yUI-Zs-Nvj" firstAttribute="bottom" secondItem="eGc-yh-ytR" secondAttribute="bottom" id="6hT-57-esO"/>
+                            <constraint firstItem="yUI-Zs-Nvj" firstAttribute="bottom" secondItem="eZ0-L5-M4Y" secondAttribute="bottom" id="8En-eb-Gg3"/>
+                            <constraint firstItem="yUI-Zs-Nvj" firstAttribute="top" secondItem="eGc-yh-ytR" secondAttribute="top" id="Ow5-UL-gXf"/>
+                            <constraint firstItem="yUI-Zs-Nvj" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="51" id="POj-C3-nBq"/>
+                            <constraint firstItem="yUI-Zs-Nvj" firstAttribute="baseline" secondItem="eGc-yh-ytR" secondAttribute="baseline" id="UIx-Yl-hs3"/>
+                            <constraint firstItem="yUI-Zs-Nvj" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="cEZ-bh-rTv"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="eGc-yh-ytR" secondAttribute="trailing" constant="23" id="iJU-Ye-snr"/>
+                            <constraint firstItem="yUI-Zs-Nvj" firstAttribute="centerY" secondItem="eZ0-L5-M4Y" secondAttribute="centerY" id="l1R-as-faD"/>
+                            <constraint firstItem="yUI-Zs-Nvj" firstAttribute="baseline" secondItem="eZ0-L5-M4Y" secondAttribute="baseline" id="mXg-yO-cQW"/>
+                            <constraint firstItem="eZ0-L5-M4Y" firstAttribute="leading" secondItem="yUI-Zs-Nvj" secondAttribute="trailing" constant="30" id="r7N-cP-HTn"/>
+                            <constraint firstItem="yUI-Zs-Nvj" firstAttribute="firstBaseline" secondItem="eZ0-L5-M4Y" secondAttribute="firstBaseline" id="v3A-cl-zQ2"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="btnLeft" destination="yUI-Zs-Nvj" id="E29-41-tib"/>
+                        <outlet property="btnRight" destination="eGc-yh-ytR" id="sg1-1h-RSj"/>
+                        <outlet property="lblDate" destination="eZ0-L5-M4Y" id="77X-OB-8Mf"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="131.8840579710145" y="138.61607142857142"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="left_arrow_dark" width="20" height="20"/>
+        <image name="right_arrow_dark" width="20" height="20"/>
+    </resources>
 </document>
