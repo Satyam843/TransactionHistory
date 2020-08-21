@@ -19,6 +19,7 @@
 		1C6F6B7524EEA96A0099519C /* serverCall.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C6F6B7424EEA96A0099519C /* serverCall.swift */; };
 		1C7631A624EEBE23004E75B1 /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C7631A524EEBE23004E75B1 /* APIManager.swift */; };
 		1C7631A824EECA3D004E75B1 /* TransactionHistoryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C7631A724EECA3D004E75B1 /* TransactionHistoryModel.swift */; };
+		1CD0293F24F003F4008550B7 /* walletViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CD0293E24F003F4008550B7 /* walletViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,7 @@
 		1C6F6B7424EEA96A0099519C /* serverCall.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = serverCall.swift; sourceTree = "<group>"; };
 		1C7631A524EEBE23004E75B1 /* APIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
 		1C7631A724EECA3D004E75B1 /* TransactionHistoryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionHistoryModel.swift; sourceTree = "<group>"; };
+		1CD0293E24F003F4008550B7 /* walletViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = walletViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,6 +75,7 @@
 				1C6F6B5B24EEA2BD0099519C /* ViewController.swift */,
 				1C6F6B7224EEA92F0099519C /* Singleton.swift */,
 				1C6F6B7424EEA96A0099519C /* serverCall.swift */,
+				1CD0293E24F003F4008550B7 /* walletViewCell.swift */,
 				1C7631A724EECA3D004E75B1 /* TransactionHistoryModel.swift */,
 				1C6F6B7024EEA8CA0099519C /* Constant.swift */,
 				1C7631A524EEBE23004E75B1 /* APIManager.swift */,
@@ -157,6 +160,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1C7631A624EEBE23004E75B1 /* APIManager.swift in Sources */,
+				1CD0293F24F003F4008550B7 /* walletViewCell.swift in Sources */,
 				1C6F6B7524EEA96A0099519C /* serverCall.swift in Sources */,
 				1C6F6B5C24EEA2BD0099519C /* ViewController.swift in Sources */,
 				1C7631A824EECA3D004E75B1 /* TransactionHistoryModel.swift in Sources */,

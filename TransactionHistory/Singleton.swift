@@ -10,7 +10,7 @@ import UIKit
 
 class Singleton: NSObject {
     static let sharedInstance = Singleton()
-     var transactionModel:TransactionHistoryModel?
+      var tranxModel:TranxHistoryModdel?
     func getTimeZone() -> Int {
            let timezone = -(NSTimeZone.system.secondsFromGMT() / 60)
            return timezone

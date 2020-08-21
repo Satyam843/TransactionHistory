@@ -28,12 +28,13 @@ class ViewController: UIViewController {
        var beginDay:String = ""
        var endDay:String = ""
        var ending_datetime:String = ""
-    var transactionModel : TransactionHistoryModel?
-    var transactionArrayCount = -1
-    var transactionArrayModel = [TransactionHistoryModel]()
+       var tranxModel:TranxHistoryModdel?
+       var tranxArrayModel=[TranxHistoryModdel]()
+       var tranxArrayCount = -1
        var back_Date = Calendar.current.date(byAdding: .day, value: -6, to: Date())!
        var forward_Date = Calendar.current.date(byAdding: .day, value: -6, to: Date())!
-       
+    @IBOutlet weak var tableView: UITableView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -43,7 +44,7 @@ class ViewController: UIViewController {
     }
     func transactionHistory(beginDateParam: String,endDateParam : String,displayStart : Int = 0)
     {
-   let params = ["access_token": "a8ffd457ffd3ed21cdc424c8915f7e3a",
+   let params = ["access_token": "d9a9f94bba2831931ef5e9065a9330fb",
        "end_date": endDateParam,
        "is_customer": "1",
        "timezone": Singleton.sharedInstance.getTimeZone(),
@@ -56,14 +57,13 @@ class ViewController: UIViewController {
             if isTrue == true
             {
                 if let data = response["data"] as? [[String:Any]]{
-                    self.transactionArrayCount = data.count
-                    for item in data{
-                        self.transactionModel = TransactionHistoryModel(json: item)
-                        self.transactionArrayModel.append(TransactionHistoryModel(json: item))
-                        Singleton.sharedInstance.transactionModel = TransactionHistoryModel(json: item)
-                        //self.detailTableView.reloadData()
+                   self.tranxArrayCount = data.count
+                   for item in data{
+                       self.tranxModel = TranxHistoryModdel(json: item)
+                       self.tranxArrayModel.append(TranxHistoryModdel(json: item))
+                       Singleton.sharedInstance.tranxModel = TranxHistoryModdel(json: item)
                     }
-                    // self.detailTableView.reloadData()
+                     self.tableView.reloadData()
                 }
             }
             else
@@ -180,5 +180,102 @@ public extension Date {
          return formatter.string(from: self)
      }
 }
+extension ViewController : UITableViewDelegate,UITableViewDataSource
+{
+    /*func numberOfSections(in tableView: UITableView) -> Int {
+         return 2
+    }
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 2
+    }
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! walletViewCell
+        cell.lblOrderId.text = tranxArrayModel[indexPath.row].customer_id
+        cell.lblTime.text = tranxArrayModel[indexPath.row].payment_datetime
+        cell.lblAmount.text = tranxArrayModel[indexPath.row].amount
+        cell.lblClosingBalance.text = tranxArrayModel[indexPath.row].closing_balance
+        return cell
+    }*/
+       
+       func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+           return self.tranxArrayModel[section].payment_datetime?.convertDateFromUTCtoLocal(input: "yyyy-MM-dd'T'HH:mm:ss.000Z", output: "dd MMM, yyy")
+        }
+       func numberOfSections(in tableView: UITableView) -> Int {
+           return self.tranxArrayCount
+       }
+       
+       func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+           return 1
+       }
+       
+       func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+         //  return UITableView.automaticDimension
+        return 100
+       }
+       
+       func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+           return UITableView.automaticDimension
+       }
+       
+       func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+           let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as! walletViewCell
+           cell.selectionStyle = .none
+         
+           cell.lblTime.text = ""
+           cell.lblOrderId.text = "Order \(self.tranxArrayModel[indexPath.section].transaction_id ?? "")"
+           cell.lblAmount.text = "Amount \(self.tranxArrayModel[indexPath.section].amount ?? "")"
+           cell.lblClosingBalance.text = "Closing Balance .\(self.tranxArrayModel[indexPath.section].closing_balance ?? "")"
+           cell.lblTime.text = self.tranxArrayModel[indexPath.section].payment_datetime?.convertDateFromUTCtoLocal(input: "yyyy-MM-dd'T'HH:mm:ss.000Z", output: "h:mm a")
+           return cell
+       }
+       
+       func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+           
+       }
+       func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+           let returnedView = UIView(frame: CGRect(x: 0, y: 0, width: view.frame.size.width, height: 25))
+           returnedView.backgroundColor = .lightGray
+
+           let label = UILabel(frame: CGRect(x: 10, y: 7, width: view.frame.size.width, height: 25))
+           label.text = self.tranxArrayModel[section].payment_datetime?.convertDateFromUTCtoLocal(input: "yyyy-MM-dd'T'HH:mm:ss.000Z", output: "dd MMM, yyy")
+           label.textColor = .black
+           returnedView.addSubview(label)
+
+           return returnedView
+       }
+       func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+           return 40
+           
+       }
+       
+   
+}
+extension String
+{
+func convertDateFromUTCtoLocal(input:String,output:String,toConvert:Bool = true )-> String {
+    let dateFormatter = DateFormatter()
+    dateFormatter.locale = NSLocale(localeIdentifier: "en_US_POSIX") as Locale
+    dateFormatter.dateFormat = input
+    if toConvert == true {
+        dateFormatter.timeZone = TimeZone(abbreviation:  "UTC")
+    }else{
+      dateFormatter.timeZone = NSTimeZone.local
+    }
+    print(self)
+    let date = dateFormatter.date(from: self)
+    dateFormatter.dateFormat = output
+    dateFormatter.timeZone = NSTimeZone.local
+    guard date != nil else {
+        return ""
+    }
+    
+    if let locale = UserDefaults.standard.value(forKey: USER_DEFAULT.selectedLocale) {
+        dateFormatter.locale = Locale.init(identifier: String(describing: locale))
+    }
+    let timeStamp = dateFormatter.string(from: date!)
+    return timeStamp
+}
+}
+
 
 

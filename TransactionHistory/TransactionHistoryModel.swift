@@ -8,57 +8,51 @@
 
 import UIKit
 
-class TransactionHistoryModel: NSObject {
-    var transactionId : String?
-    var customerId : String?
-    var amount : String?
-    var closingBalance : String?
-    var paymentMode : String?
-    var paymentType : String?
-    var paymentDateTime : String?
+class TranxHistoryModdel: NSObject {
+    var transaction_id:String?
+    var customer_id :String?
+    var amount :String?
+    var closing_balance:String?
+    var payment_mode:String?
+    var payment_type:String?
+    var payment_datetime:String?
     
-    init(json : [String: Any]) {
-        if let customerId = json["customerId"] as? String
-        {
-            self.customerId = customerId
+    init(json:[String:Any]) {
+        if let customer_id = json["customer_id"] as? String {
+            self.customer_id = customer_id
+        } else if let customer_id = json["customer_id"] as? Int {
+            self.customer_id = "\(customer_id)"
         }
-        else if let customerId = json["customerId"] as? Int
-        {
-            self.customerId = "\(customerId)"
+        if let id = json["transaction_id"] as? String {
+            self.transaction_id = id
+        } else if let id = json["transaction_id"] as? Int {
+            self.transaction_id = "\(id)"
         }
-        if let transactionId = json["transactionId"] as? String
-               {
-                   self.transactionId = transactionId
-               }
-               else if let transactionId = json["transactionId"] as? Int
-               {
-                   self.transactionId = "\(transactionId)"
-               }
         if let amount = json["amount"] as? String {
-                   self.amount = amount
-               } else if let amount = json["amount"] as? Int {
-                   self.amount = "\(amount)"
-               }
-               if let closingBalance = json["closingBalance"] as? String {
-                   self.closingBalance = closingBalance
-               } else if let paymentDateTime = json["paymentDateTime"] as? Int {
-                   self.paymentDateTime = "\(paymentDateTime)"
-               }
-               if let paymentMode = json["paymentMode"] as? String {
-                   self.paymentMode = paymentMode
-               } else if let paymentMode = json["paymentMode"] as? Int {
-                   self.paymentMode = "\(paymentMode)"
-               }
-               if let paymentType = json["paymentType"] as? String {
-                   self.paymentType = paymentType
-               } else if let paymentType = json["paymentType"] as? Int {
-                   self.paymentType = "\(paymentType)"
-               }
-               
-               if let paymentDateTime = json["paymentDateTime"] as? String {
-                     self.paymentDateTime = paymentDateTime
-                 } else if let paymentDateTime = json["paymentDateTime"] as? Int {
-                     self.paymentDateTime = "\(paymentDateTime)"
-                 }
+            self.amount = amount
+        } else if let amount = json["amount"] as? Int {
+            self.amount = "\(amount)"
+        }
+        if let closing_balance = json["closing_balance"] as? String {
+            self.closing_balance = closing_balance
+        } else if let closing_balance = json["closing_balance"] as? Int {
+            self.closing_balance = "\(closing_balance)"
+        }
+        if let payment_mode = json["payment_mode"] as? String {
+            self.payment_mode = payment_mode
+        } else if let payment_mode = json["payment_mode"] as? Int {
+            self.payment_mode = "\(payment_mode)"
+        }
+        if let payment_type = json["payment_type"] as? String {
+            self.payment_type = payment_type
+        } else if let payment_type = json["payment_type"] as? Int {
+            self.payment_type = "\(payment_type)"
+        }
+        
+        if let payment_datetime = json["payment_datetime"] as? String {
+              self.payment_datetime = payment_datetime
+          } else if let payment_datetime = json["payment_datetime"] as? Int {
+              self.payment_datetime = "\(payment_datetime)"
+          }
     }
 }
